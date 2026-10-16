@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#112d37" />
+    <meta name="description" content="Payday Tides is a small browser puzzle about making money arrive before bills do." />
+    <title>Payday Tides · a cash-flow puzzle</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#game">Skip to game</a>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="wordmark" href="#game" aria-label="Payday Tides home">
+        <span class="logo-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span>PAYDAY <strong>TIDES</strong></span>
+      </a>
+      <div class="header-actions"><span class="header-tag">A GAME ABOUT THE DAYS BETWEEN</span><button id="sound-toggle" class="sound-toggle" type="button" aria-pressed="false">Sound off</button></div>
+    </header>
+
+    <main id="game" class="shell">
+      <section class="intro" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow"><span class="eyebrow-line"></span> CASH-FLOW PUZZLES · FOUR SHORT STORIES</p>
+          <h1 id="page-title">Money is a <em>timing</em> game.</h1>
+          <p class="intro-copy">A month can add up on paper and still go under on Tuesday. Place each payment inside its allowed window, choose one move, and keep your balance above zero every day.</p>
+          <a class="start-link" href="#story-title">Play the first story <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="intro-graphic" aria-hidden="true">
+          <span class="graphic-sun"></span>
+          <span class="graphic-hill"></span>
+          <span class="graphic-wave wave-a"></span>
+          <span class="graphic-wave wave-b"></span>
+          <span class="graphic-coins">$</span>
+          <span class="graphic-caption">STAY ABOVE WATER</span>
+        </div>
+      </section>
+
+      <nav class="level-nav" aria-label="Choose a story" id="level-nav"></nav>
+
+      <section class="story" aria-labelledby="story-title">
+        <div class="story-main">
+          <p class="section-kicker" id="story-number"></p>
+          <h2 id="story-title"></h2>
+          <p id="story-description"></p>
+          <div class="income-strip" aria-label="Money arriving during this story" id="income-strip"></div>
+          <div class="story-lesson"><span aria-hidden="true">↳</span><span id="story-lesson"></span></div>
+        </div>
+        <div class="opening-card">
+          <span>IN YOUR ACCOUNT</span>
+          <strong id="opening-balance"></strong>
+          <small>at the start of day 1</small>
+          <div class="opening-rule"></div>
+          <span class="opening-note">Money arriving on a day clears before that day’s payments.</span>
+        </div>
+      </section>
+
+      <div class="game-grid">
+        <section class="work-panel" aria-labelledby="schedule-title">
+          <div class="panel-head">
+            <div><p class="section-kicker">STEP 01 / SET YOUR DATES</p><h2 id="schedule-title">Payment cards</h2></div>
+            <span class="small-tip">Tap a date to move it</span>
+          </div>
+          <p class="panel-description">Every date shown is an agreement in this fictional story. Your job is to choose when to pay, not whether to pay.</p>
+          <div class="bill-list" id="bill-list"></div>
+          <p class="schedule-note" id="schedule-note" role="status" aria-live="polite"></p>
+        </section>
+
+        <aside class="work-panel move-panel" aria-labelledby="move-title">
+          <div class="panel-head">
+            <div><p class="section-kicker">STEP 02 / MAKE ONE MOVE</p><h2 id="move-title">Your call</h2></div>
+          </div>
+          <p class="panel-description">Compare the total cost and the dates. An early cash boost can leave a hole later.</p>
+          <div class="move-list" id="move-list" role="radiogroup" aria-label="Choose one move"></div>
+        </aside>
+      </div>
+
+      <section class="forecast" aria-labelledby="forecast-title">
+        <div class="forecast-heading">
+          <div><p class="section-kicker">STEP 03 / TEST YOUR PLAN</p><h2 id="forecast-title">The 14-day crossing</h2></div>
+          <button class="run-button" id="run-button" type="button"><span>Run the days</span><span aria-hidden="true">↗</span></button>
+        </div>
+        <p class="forecast-intro" id="forecast-intro">Nothing hidden: the game sums opening cash, income, your chosen payments and your move. Three stars means every day stays funded, with at least $10 at the low point and no borrowing fee or stated sacrifice. Two stars means funded without a fee; one means funded with a fee. Tap “Run the days” to see where you land.</p>
+        <div class="forecast-placeholder" id="forecast-placeholder" aria-hidden="true"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span><span>09</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span></div>
+        <div class="forecast-result" id="forecast-result" aria-live="polite" hidden></div>
+      </section>
+
+      <footer class="site-footer">
+        <span>PAYDAY TIDES · AN OFFLINE, FICTIONAL GAME</span>
+        <span>Real payment windows, fees and options depend on your provider. This is learning through play, not financial advice.</span>
+      </footer>
+    </main>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
